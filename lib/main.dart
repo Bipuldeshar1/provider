@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:statemgmt/noteapp/provider/noteProvider.dart';
+
+import 'package:statemgmt/noteapp/screen/home.dart';
 import 'package:statemgmt/yt/provider/count_provider.dart';
 import 'package:statemgmt/yt/provider/darktheme_provider.dart';
 import 'package:statemgmt/yt/provider/fav_provider.dart';
@@ -39,6 +42,9 @@ class MyApp extends StatelessWidget {
           ),
           ChangeNotifierProvider(
             create: (_) => AuthProvider(),
+          ),
+          ChangeNotifierProvider(
+            create: (_) => NoteProvider(),
           )
         ],
         child: Builder(builder: (BuildContext context) {
@@ -53,7 +59,7 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.light,
               primarySwatch: Colors.purple,
             ),
-            home: LoginScreen(),
+            home: HomeScreen(),
           );
         }));
   }
